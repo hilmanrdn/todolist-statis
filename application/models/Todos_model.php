@@ -23,9 +23,9 @@ class Todos_model extends CI_Model
 	 * @param $id todo
 	 * @return array
 	 */
-    public function get_todos($id = NULL)
+    public function get_todos($id = null)
     {
-		if($id != NULL) {
+		if ($id != null) {
 			return $this->todos[$id];
 		}
 
@@ -40,7 +40,6 @@ class Todos_model extends CI_Model
     public function set_todo()
     {
         $new_todo = $this->input->post('new_todo');
-
         array_push($this->todos, $new_todo);
         return $this->todos;
     }
@@ -50,9 +49,9 @@ class Todos_model extends CI_Model
 	 * @param $id todo
 	 * @return array
 	 */
-    public function update_todo($id = NULL)
+    public function update_todo($id = null)
     {
-        if($id != NULL) {
+        if ($id != null) {
             $this->todos[$id] = $this->input->post('new_todo');;
             return $this->todos;
         }
@@ -63,9 +62,9 @@ class Todos_model extends CI_Model
 	 * @param $id todo
 	 * @return array
 	 */
-    public function delete_todo($id = NULL)
+    public function delete_todo($id = null)
     {
-        if($id != NULL) {
+        if ($id != null) {
             unset($this->todos[$id]);
             return $this->todos;
         }

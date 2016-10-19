@@ -10,7 +10,7 @@
     <ul>
        <?php
             $x = 0; //as index number (id)
-            foreach ($todos as $todo) {
+            foreach ($todos as $todo):
        ?>
                 <li> <?php echo $todo; ?> </li>
 
@@ -24,7 +24,10 @@
                     <input type="submit" name="submit" value="Edit">
                 </form>
 
-      <?php $x++; }  ?>
+        <?php
+            $x++;
+            endforeach;
+        ?>
 
       <br>
 

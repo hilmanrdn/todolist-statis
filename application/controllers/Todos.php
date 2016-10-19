@@ -26,8 +26,7 @@ class Todos extends CI_Controller
 	 */
 	public function create()
 	{
-		$this->todos_model->set_todo();
-		$data['todos'] = $this->todos_model->get_todos();
+		$data['todos'] = $this->todos_model->set_todo();
         $this->load->view('todos/index', $data);
 	}
 
@@ -36,11 +35,10 @@ class Todos extends CI_Controller
 	 * @param $id todo
 	 * @return View
 	 */
-	public function delete($id = NULL)
+	public function delete($id = null)
 	{
-		if($id != NULL) {
-			$this->todos_model->delete_todo($id);
-			$data['todos'] = $this->todos_model->get_todos();
+		if ($id != null) {
+			$data['todos'] = $this->todos_model->delete_todo($id);
 	        $this->load->view('todos/index', $data);
 		}
 	}
@@ -50,11 +48,10 @@ class Todos extends CI_Controller
 	 * @param $id todo
 	 * @return View
 	 */
-	public function edit($id = NULL)
+	public function edit($id = null)
 	{
 		$data['id']	   = $id;
-		$data['todo'] = $this->todos_model->get_todos($id);
-
+		$data['todo']  = $this->todos_model->get_todos($id);
 		$this->load->view('todos/edit', $data);
 	}
 
@@ -63,10 +60,9 @@ class Todos extends CI_Controller
 	 * @param $id todo
 	 * @return View
 	 */
-	public function update($id = NULL)
+	public function update($id = null)
 	{
-		$data['todo']  = $this->todos_model->update_todo($id);
-		$data['todos'] = $this->todos_model->get_todos();
+		$data['todos']  = $this->todos_model->update_todo($id);
 		$this->load->view('todos/index', $data);
 	}
 
